@@ -4,25 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Image gallery</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link
+      href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/basiclightbox@5.1.1/dist/basicLightbox.min.css"
     />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.1.0/simplelightbox.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Gallery</title>
   </head>
   <body>
-    <div class="gallery">
-      <div class="gallery__items">
-        <!-- Gallery items will be generated dynamically here -->
-      </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.1.1/dist/basicLightbox.min.js"></script>
+    <p><a href="index.html">Go back</a></p>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.1.0/simple-lightbox.min.js"></script>
-    <script src="script.js"></script>
+    <!-- Add gallery items to this list -->
+    <ul class="gallery"></ul>
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+
+    <script src="js/01-gallery.js" type="module"></script>
   </body>
 </html>

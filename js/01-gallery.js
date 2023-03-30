@@ -1,60 +1,68 @@
 import { galleryItems } from "./gallery-items.js";
-
+// Change code below this line
 const galleryItems = [
   {
-    src: "https://picsum.photos/id/1003/800/800",
-    alt: "Lorem ipsum dolor sit amet",
+    preview: "img/preview-1.jpg",
+    original: "img/original-1.jpg",
+    description: "Description 1",
   },
   {
-    src: "https://picsum.photos/id/1002/800/800",
-    alt: "Consectetur adipiscing elit",
+    preview: "img/preview-2.jpg",
+    original: "img/original-2.jpg",
+    description: "Description 2",
   },
   {
-    src: "https://picsum.photos/id/1004/800/800",
-    alt: "Sed do eiusmod tempor incididunt",
+    preview: "img/preview-3.jpg",
+    original: "img/original-3.jpg",
+    description: "Description 3",
   },
   {
-    src: "https://picsum.photos/id/1001/800/800",
-    alt: "Ut labore et dolore magna aliqua",
+    preview: "img/preview-4.jpg",
+    original: "img/original-4.jpg",
+    description: "Description 4",
   },
   {
-    src: "https://picsum.photos/id/1005/800/800",
-    alt: "Ut enim ad minim veniam",
+    preview: "img/preview-5.jpg",
+    original: "img/original-5.jpg",
+    description: "Description 5",
+  },
+  {
+    preview: "img/preview-6.jpg",
+    original: "img/original-6.jpg",
+    description: "Description 6",
   },
 ];
 
-const gallery = document.querySelector(".gallery__items");
+const gallery = document.querySelector(".gallery");
 
-galleryItems.forEach((item) => {
-  const galleryItem = document.createElement("div");
-  galleryItem.classList.add("gallery__item");
+const galleryItemTemplate = ({ preview, original, description }) => `
+    <div class="gallery__item">
+      <a class="gallery__link" href="${original}">
+        <img class="gallery__image" src="${preview}" data-source="${original}" alt="${description}">
+      </a>
+    </div>
+  `;
 
-  const galleryLink = document.createElement("a");
-  galleryLink.classList.add("gallery__link");
-  galleryLink.href = item.src;
+const galleryMarkup = galleryItems.map(galleryItemTemplate).join("");
 
-  const galleryImage = document.createElement("img");
-  galleryImage.classList.add("gallery__image");
-  galleryImage.src = item.src;
-  galleryImage.alt = item.alt;
-  galleryImage.dataset.source = item.src;
+gallery.insertAdjacentHTML("beforeend", galleryMarkup);
 
-  galleryLink.appendChild(galleryImage);
-  galleryItem.appendChild(galleryLink);
-  gallery.appendChild(galleryItem);
-});
+gallery.addEventListener("click", onGalleryClick);
 
-gallery.addEventListener("click", (event) => {
+function onGalleryClick(event) {
   event.preventDefault();
 
-  if (event.target.tagName === "IMG") {
-    const imageSrc = event.target.dataset.source;
+  const { target } = event;
 
-    const lightbox = basicLightbox.create(`
-        <img src="${imageSrc}">
-      `);
-
-    lightbox.show();
+  if (target.nodeName !== "IMG") {
+    return;
   }
-});
+
+  const basicLightboxInstance = basicLightbox.create(`
+      <img src="${target.dataset.source}" alt="${target.alt}" />
+    `);
+
+  basicLightboxInstance.show();
+}
+
 console.log(galleryItems);
