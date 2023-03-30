@@ -1,44 +1,59 @@
 import { galleryItems } from "./gallery-items.js";
 
-const galleryList = document.querySelector(".gallery__list");
-const lightbox = document.querySelector("#lightbox");
-const lightboxImage = lightbox.querySelector("img");
+const galleryItems = [
+  {
+    src: "https://picsum.photos/id/1003/800/800",
+    alt: "Lorem ipsum dolor sit amet",
+  },
+  {
+    src: "https://picsum.photos/id/1002/800/800",
+    alt: "Consectetur adipiscing elit",
+  },
+  {
+    src: "https://picsum.photos/id/1004/800/800",
+    alt: "Sed do eiusmod tempor incididunt",
+  },
+  {
+    src: "https://picsum.photos/id/1001/800/800",
+    alt: "Ut labore et dolore magna aliqua",
+  },
+  {
+    src: "https://picsum.photos/id/1005/800/800",
+    alt: "Ut enim ad minim veniam",
+  },
+];
 
-// Render the gallery
-galleryItems.forEach(({ preview, original, description }) => {
-  const galleryItem = document.createElement("li");
+const gallery = document.querySelector(".gallery__items");
+
+galleryItems.forEach((item) => {
+  const galleryItem = document.createElement("div");
   galleryItem.classList.add("gallery__item");
 
   const galleryLink = document.createElement("a");
   galleryLink.classList.add("gallery__link");
-  galleryLink.href = original;
+  galleryLink.href = item.src;
 
   const galleryImage = document.createElement("img");
   galleryImage.classList.add("gallery__image");
-  galleryImage.src = preview;
-  galleryImage.alt = description;
-  galleryImage.dataset.source = original;
+  galleryImage.src = item.src;
+  galleryImage.alt = item.alt;
+  galleryImage.dataset.source = item.src;
 
-  galleryLink.append(galleryImage);
-  galleryItem.append(galleryLink);
-  galleryList.append(galleryItem);
+  galleryLink.appendChild(galleryImage);
+  galleryItem.appendChild(galleryLink);
+  gallery.appendChild(galleryItem);
+});
 
-  // Block the default link behavior
-  galleryLink.addEventListener("click", (event) => {
-    event.preventDefault();
-  });
+gallery.addEventListener("click", (event) => {
+  event.preventDefault();
 
-  // Open the lightbox on click
-  galleryLink.addEventListener("click", () => {
-    lightboxImage.src = original;
-    const lightboxInstance = basicLightbox.create(lightbox, {
-      onShow: () => {
-        document.body.style.overflow = "hidden";
-      },
-      onClose: () => {
-        document.body.style.overflow = "auto";
-      },
-    });
-    lightboxInstance.show();
-  });
+  if (event.target.tagName === "IMG") {
+    const imageSrc = event.target.dataset.source;
+
+    const lightbox = basicLightbox.create(`
+        <img src="${imageSrc}">
+      `);
+
+    lightbox.show();
+  }
 });
