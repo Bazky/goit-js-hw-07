@@ -1,13 +1,10 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-const prevent = getElemenById("prevent");
+const prevent = document.getElemenById("prevent");
 prevent.addEventListener("click", (e) => {
-  ev.preventDeafult();
+  e.preventDeafult();
 });
-
-import * as basicLightbox from "basiclightbox";
-import { galleryItems } from "./gallery-items";
 
 const gallery = document.querySelector(".gallery");
 const galleryList = document.querySelector(".gallery__list");
