@@ -24,7 +24,7 @@ function onGalleryItemClick(event) {
   event.preventDefault();
   const imageSrc = event.target.dataset.source;
   const instance = basicLightbox.create(`
-    <img src="https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__340.jpg" width="800" height="600">
+    <img src= ${imageSrc} width="800" height="600">
   `);
   instance.show();
 }
