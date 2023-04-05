@@ -6,8 +6,6 @@ const galleryList = document.querySelector(".gallery__list");
 
 // Tworzenie elementów galerii na podstawie tablicy galleryItems
 function createGalleryItem(item) {
-  const template = document.querySelector("#gallery-item-template");
-  const galleryItem = template.content.cloneNode(true);
   const image = galleryItem.querySelector(".gallery__image");
   const link = galleryItem.querySelector(".gallery__link");
 
