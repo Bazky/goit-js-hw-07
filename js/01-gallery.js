@@ -2,7 +2,6 @@ import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 const gallery = document.querySelector(".gallery");
-const galleryList = document.querySelector(".gallery__list");
 
 // Tworzenie elementów galerii na podstawie tablicy galleryItems
 function createGalleryItem(item) {
@@ -20,7 +19,6 @@ function createGalleryItem(item) {
 // Dodawanie elementów galerii do kontenera
 function renderGalleryItems() {
   const galleryItemsElements = galleryItems.map(createGalleryItem);
-  galleryList.append(...galleryItemsElements);
 }
 
 // Otwieranie okna modalnego po kliknięciu na element galerii
@@ -28,7 +26,7 @@ function onGalleryItemClick(event) {
   event.preventDefault();
   const imageSrc = event.target.dataset.source;
   const instance = basicLightbox.create(`
-    <img src="${imageSrc}" width="800" height="600">
+    <img src="https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__340.jpg" width="800" height="600">
   `);
   instance.show();
 }
