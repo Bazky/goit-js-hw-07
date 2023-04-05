@@ -23,13 +23,18 @@ function renderGalleryItems() {
 
 // Otwieranie okna modalnego po kliknięciu na element galerii
 function onGalleryItemClick(event) {
-  event.preventDefault();
   const imageSrc = event.target.dataset.source;
   const instance = basicLightbox.create(`
     <img src="${imageSrc}"   width="800" height="600">
   `);
   instance.show();
 }
+
+const prev = document.getElementById("prev");
+
+prev.addEventListener("click", (e) => {
+  preventDeafult();
+});
 
 renderGalleryItems();
 addGalleryItemsListener();
