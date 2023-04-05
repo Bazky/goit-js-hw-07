@@ -8,10 +8,12 @@ function createGalleryItem(item) {
   const image = galleryItem.querySelector(".gallery__image");
   const link = galleryItem.querySelector(".gallery__link");
 
-  image.src = item.original;
-  image.dataset.source = item.preview;
+  image.src = item.preview;
+  image.dataset.source = item.original;
   image.alt = item.description;
-  link.href = item.preview;
+  link.href = item.original;
+
+  return galleryItem;
 }
 
 // Dodawanie elementów galerii do kontenera
@@ -24,18 +26,9 @@ function onGalleryItemClick(event) {
   event.preventDefault();
   const imageSrc = event.target.dataset.source;
   const instance = basicLightbox.create(`
-    <img src= ${imageSrc} width="800" height="600">
+    <img src="${imageSrc}"   width="800" height="600">
   `);
   instance.show();
-}
-
-// Dodawanie słuchacza kliknięć na elementy galerii
-function addGalleryItemsListener() {
-  gallery.addEventListener("click", (event) => {
-    if (event.target.classList.contains("gallery__image")) {
-      onGalleryItemClick(event);
-    }
-  });
 }
 
 renderGalleryItems();
