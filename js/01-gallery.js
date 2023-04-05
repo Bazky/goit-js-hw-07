@@ -3,7 +3,7 @@ import { galleryItems } from "./gallery-items.js";
 
 const prevent = getElemenById("prevent");
 prevent.addEventListener("click", (e) => {
-  eval.preventDeafult();
+  ev.preventDeafult();
 });
 
 import * as basicLightbox from "basiclightbox";
