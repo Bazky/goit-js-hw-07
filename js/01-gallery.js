@@ -42,8 +42,6 @@ function addGalleryItemsListener() {
 }
 
 renderGalleryItems();
-createGalleryItem();
-onGalleryItemClick();
 addGalleryItemsListener();
 
 console.log(galleryItems);
