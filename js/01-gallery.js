@@ -43,5 +43,6 @@ prev.addEventListener("click", (e) => {
 
 renderGalleryItems();
 addGalleryItemsListener();
+onGalleryItemClick();
 
 console.log(galleryItems);
