@@ -1,5 +1,5 @@
 import { galleryItems } from "./gallery-items.js";
-// Change code below this line
+
 import * as basicLightbox from "basiclightbox";
 const gallery = document.querySelector(".gallery");
 
@@ -23,8 +23,7 @@ function renderGalleryItems() {
 function onGalleryItemClick(event) {
   const imageSrc = event.target.dataset.source;
   const instance = basicLightbox.create(`
-    <img src= "https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg"
-     width="800" height="600">
+    <img src="./css/2h-media-jnaJHHt-M8Q-unsplash.jpg" width="800" height="600">
   `);
   instance.show();
 }
