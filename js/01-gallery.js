@@ -3,6 +3,10 @@ import { galleryItems } from "./gallery-items.js";
 import * as basicLightbox from "basiclightbox";
 const gallery = document.querySelector(".gallery");
 
+function renderGalleryItems() {
+  const galleryItemsElements = galleryItems.map(createGalleryItem);
+}
+
 function createGalleryItem(item) {
   const galleryItem = document.querySelector(".gallery__item");
   const image = galleryItem.querySelector(".gallery__image");
@@ -14,10 +18,6 @@ function createGalleryItem(item) {
   link.href = item.original;
 
   return galleryItem;
-}
-
-function renderGalleryItems() {
-  const galleryItemsElements = galleryItems.map(createGalleryItem);
 }
 
 function onGalleryItemClick(event) {
@@ -38,8 +38,8 @@ function addGalleryItemsListener() {
 }
 
 renderGalleryItems();
-addGalleryItemsListener();
-onGalleryItemClick();
 createGalleryItem();
+onGalleryItemClick();
+addGalleryItemsListener();
 
 console.log(galleryItems);
