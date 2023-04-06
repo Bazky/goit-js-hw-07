@@ -37,11 +37,6 @@ function addGalleryItemsListener() {
   });
 }
 
-const prev = document.getElementById("prev");
-prev.addEventListener("click", (e) => {
-  preventDeafult();
-});
-
 renderGalleryItems();
 addGalleryItemsListener();
 onGalleryItemClick();
