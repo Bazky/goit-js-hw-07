@@ -4,8 +4,7 @@ import * as basicLightbox from "basiclightbox";
 const gallery = document.querySelector(".gallery");
 
 function createGalleryItem(item) {
-  const template = document.getElementById("gallery-item-template");
-  const galleryItem = template.content.cloneNode(true);
+  const galleryItem = document.querySelector(".gallery__item");
   const image = galleryItem.querySelector(".gallery__image");
   const link = galleryItem.querySelector(".gallery__link");
 
