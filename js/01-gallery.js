@@ -3,35 +3,15 @@ import { galleryItems } from "./gallery-items.js";
 import * as basicLightbox from "basiclightbox";
 const gallery = document.querySelector(".gallery");
 
-// function createGalleryItem(item) {
-//   const galleryItem = document.querySelector(".gallery__item");
-//   const image = galleryItem.querySelector(".gallery__image");
-//   const link = galleryItem.querySelector(".gallery__link");
-
-//   image.src = item.preview;
-//   image.dataset.source = item.original;
-//   image.alt = item.description;
-//   link.href = item.original;
-
-//   return galleryItem;
-// }
-
 function createGalleryItem(item) {
-  const galleryItem = document.createElement("div");
-  galleryItem.classList.add("gallery__item");
+  const galleryItem = document.querySelector(".gallery__item");
+  const image = galleryItem.querySelector(".gallery__image");
+  const link = galleryItem.querySelector(".gallery__link");
 
-  const link = document.createElement("a");
-  link.classList.add("gallery__link");
-  link.href = item.original;
-
-  const image = document.createElement("img");
-  image.classList.add("gallery__image");
   image.src = item.preview;
   image.dataset.source = item.original;
   image.alt = item.description;
-
-  link.appendChild(image);
-  galleryItem.appendChild(link);
+  link.href = item.original;
 
   return galleryItem;
 }
