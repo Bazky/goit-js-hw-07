@@ -1,7 +1,10 @@
 import { galleryItems } from "./gallery-items.js";
 
+import * as basicLightbox from "basiclightbox";
+const gallery = document.querySelector(".gallery");
+
 function createGalleryItem(item) {
-  const galleryItem = document.querySelector(".gallery");
+  const galleryItem = document.querySelector(".gallery__item");
   const image = galleryItem.querySelector(".gallery__image");
   const link = galleryItem.querySelector(".gallery__link");
 
