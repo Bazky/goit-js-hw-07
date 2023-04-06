@@ -16,6 +16,26 @@ function createGalleryItem(item) {
   return galleryItem;
 }
 
+function createGalleryItem(item) {
+  const galleryItem = document.createElement("div");
+  galleryItem.classList.add("gallery__item");
+
+  const link = document.createElement("a");
+  link.classList.add("gallery__link");
+  link.href = item.original;
+
+  const image = document.createElement("img");
+  image.classList.add("gallery__image");
+  image.src = item.preview;
+  image.dataset.source = item.original;
+  image.alt = item.description;
+
+  link.appendChild(image);
+  galleryItem.appendChild(link);
+
+  return galleryItem;
+}
+
 function renderGalleryItems() {
   const galleryItemsElements = galleryItems.map(createGalleryItem);
 }
