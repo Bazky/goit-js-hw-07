@@ -21,9 +21,10 @@ function renderGalleryItems() {
 }
 
 function onGalleryItemClick(event) {
+  event.preventDefault();
   const imageSrc = event.target.dataset.source;
   const instance = basicLightbox.create(`
-    <img src="./css/2h-media-jnaJHHt-M8Q-unsplash.jpg" width="800" height="600">
+    <img src="${imageSrc}" width="800" height="600">
   `);
   instance.show();
 }
