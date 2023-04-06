@@ -4,13 +4,17 @@ import * as basicLightbox from "basiclightbox";
 const gallery = document.querySelector(".gallery");
 
 function createGalleryItem(item) {
-  const image = document.querySelector(".gallery__image");
-  const link = document.querySelector(".gallery__link");
+  const template = document.getElementById("gallery-item-template");
+  const galleryItem = template.content.cloneNode(true);
+  const image = galleryItem.querySelector(".gallery__image");
+  const link = galleryItem.querySelector(".gallery__link");
 
   image.src = item.preview;
   image.dataset.source = item.original;
   image.alt = item.description;
   link.href = item.original;
+
+  return galleryItem;
 }
 
 function renderGalleryItems() {
@@ -25,8 +29,15 @@ function onGalleryItemClick(event) {
   instance.show();
 }
 
-const prev = document.getElementById("prev");
+function addGalleryItemsListener() {
+  gallery.addEventListener("click", (event) => {
+    if (event.target.classList.contains("gallery__image")) {
+      onGalleryItemClick(event);
+    }
+  });
+}
 
+const prev = document.getElementById("prev");
 prev.addEventListener("click", (e) => {
   preventDeafult();
 });
