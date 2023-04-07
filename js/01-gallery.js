@@ -22,14 +22,16 @@ function createGalleryItem(item) {
 
 const gallery = document.querySelector(".gallery");
 const html = galleryItems.map(createGalleryItem);
-galleryItems.append(createGalleryItem);
+
+const galleryItemsElements = galleryItems.map(createGalleryItem);
+gallery.append(...galleryItemsElements);
 
 function onGalleryItemClick(event) {
   event.preventDefault();
   const imageSrc = event.target.dataset.source;
   const instance = basicLightbox.create(`
-    <img src="${imageSrc}" width="800" height="600">
-  `);
+        <img src="${imageSrc}" width="800" height="600">
+      `);
   instance.show();
 }
 
