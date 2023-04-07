@@ -22,7 +22,6 @@ function createGalleryItem(item) {
 
 const gallery = document.querySelector(".gallery");
 const html = galleryItems.map(createGalleryItem);
-
 const galleryItemsElements = galleryItems.map(createGalleryItem);
 gallery.append(...galleryItemsElements);
 
