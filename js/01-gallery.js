@@ -41,7 +41,6 @@ function addGalleryItemsListener() {
   });
 }
 
-renderGalleryItems();
 addGalleryItemsListener();
 
 console.log(galleryItems);
