@@ -1,12 +1,5 @@
 import { galleryItems } from "./gallery-items.js";
 
-function renderGalleryItems() {
-  const galleryItemsElements = galleryItems.map(createGalleryItem);
-  const gallery = document.querySelector(".gallery");
-
-  galleryItems.map(gallery.innerHTML);
-}
-
 function createGalleryItem(item) {
   const galleryItem = document.createElement("div");
   galleryItem.classList.add("gallery__item");
@@ -26,6 +19,10 @@ function createGalleryItem(item) {
 
   return galleryItem;
 }
+
+const gallery = document.querySelector(".gallery");
+const html = galleryItems.map(createGalleryItem);
+gallery.innerHTML = html;
 
 function onGalleryItemClick(event) {
   event.preventDefault();
