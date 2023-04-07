@@ -23,6 +23,7 @@ function createGalleryItem(item) {
 const gallery = document.querySelector(".gallery");
 const html = galleryItems.map(createGalleryItem);
 gallery.innerHTML += html;
+createGalleryItem.innerHTML;
 
 function onGalleryItemClick(event) {
   event.preventDefault();
