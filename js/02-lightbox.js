@@ -26,11 +26,10 @@ gallery.append(...html);
 const options = {
   captions: true,
   captionsDelay: 250,
-  callbacks: {
-    onSlideChange: (slide) => {
-      const alt = slide.querySelector("img").getAttribute("alt");
-      slide.querySelector(".slbCaption__wrapper").innerHTML = image.alt;
-    },
-  },
+  captionSelector: "self", // Opcja wskazująca, że podpis ma być pobierany z atrybutu alt
+  captionType: "attr",
+  captionPosition: "bottom",
+  captionClass: "gallery__caption", // Klasa dodana dla podpisu
+  captionsData: "alt",
 };
 const lightbox = new SimpleLightbox(".gallery a", options);
