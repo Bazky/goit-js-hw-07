@@ -29,7 +29,7 @@ const options = {
   callbacks: {
     onSlideChange: (slide) => {
       const alt = slide.querySelector("img").getAttribute("alt");
-      slide.querySelector(".slbCaption__wrapper").innerHTML = alt;
+      slide.querySelector(".slbCaption__wrapper").innerHTML = image.alt;
     },
   },
 };
