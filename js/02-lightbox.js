@@ -23,6 +23,8 @@ const gallery = document.querySelector(".gallery");
 const html = galleryItems.map(createGalleryItem);
 gallery.append(...html);
 
+const lightbox = new SimpleLightbox(".gallery a", options);
+
 const options = {
   captions: true,
   captionsDelay: 250,
@@ -30,5 +32,3 @@ const options = {
   captionType: "data",
   captionAttribute: "description",
 };
-
-const lightbox = new SimpleLightbox(".gallery a", options);
