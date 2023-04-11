@@ -24,11 +24,3 @@ const html = galleryItems.map(createGalleryItem);
 gallery.append(...html);
 
 const lightbox = new SimpleLightbox(".gallery a", options);
-
-const options = {
-  captions: true,
-  captionsDelay: 250,
-  captionSelector: "a",
-  captionType: "data",
-  captionAttribute: "description",
-};
