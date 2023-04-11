@@ -26,8 +26,11 @@ gallery.append(...html);
 const options = {
   captions: true,
   captionsDelay: 250,
-  captionSelector: "a",
-  captionType: "text",
-  captionAttribute: "description",
+  callbacks: {
+    onSlideChange: (slide) => {
+      const alt = slide.querySelector("img").getAttribute("alt");
+      slide.querySelector(".slbCaption__wrapper").innerHTML = alt;
+    },
+  },
 };
 const lightbox = new SimpleLightbox(".gallery a", options);
