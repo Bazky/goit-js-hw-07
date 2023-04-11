@@ -26,7 +26,7 @@ gallery.append(...html);
 const options = {
   captions: true,
   captionsDelay: 250,
-  captionSelector: "img", // Opcja wskazująca, że podpis ma być pobierany z atrybutu alt
+  captionSelector: "img",
   captionType: "attr",
   captionPosition: "bottom",
   captionsData: "alt",
