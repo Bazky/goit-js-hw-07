@@ -19,6 +19,7 @@ function createGalleryItem(item) {
   return galleryItem;
 }
 
+const gallery = document.querySelector(".gallery");
 const html = galleryItems.map(createGalleryItem);
 gallery.append(...html);
 
