@@ -23,4 +23,8 @@ const gallery = document.querySelector(".gallery");
 const html = galleryItems.map(createGalleryItem);
 gallery.append(...html);
 
+const options = {
+  captions: true,
+  captionsDelay: 250,
+};
 const lightbox = new SimpleLightbox(".gallery a", options);
